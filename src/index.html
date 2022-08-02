@@ -189,10 +189,32 @@ background-size: cover;
                   <input id="name" class="col-xs-5" type="text"></input>
                 </div>
               <div  style="padding-right:150px">
-                <button type="submit" onSubmit="App.getpolicy(); return false;" class="button" >Pay</button>
+                <button style="background-color:red;border-color:#010816;color:#f2f2f2" id="connect-button">Connect Wallet</button>
+                <button style="background-color:purple;border-color:black;color:#f2f2f2" id="send-button">Pay ETHER</button>
+                <script > 
+                 let account;
+                document.getElementById('connect-button').addEventListener('click', event =>{
+                 let button = event.target;
+                  ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+                    account = accounts[0];
+                    console.log(account);
+                    button.textContext = account;
+                  });
+                });
+
+                document.getElementById('send-button').addEventListener('click', event =>{
+                  let transactionparam={
+                    to:'0x2481091d7CB8b9d0d031a8BbA0bD2c64B0C7539c',
+                    from: account,
+                    value:'6F05B59D3B20000'
+                  };
+                  ethereum.request({method: 'eth_sendTransaction', params:[transactionparam]}).then(txhash => {
+                    console.log(txhash);
+                  });
+                });
+                </script> 
               </div>
               </form>
-
 
       </div>
         </div>
@@ -224,7 +246,31 @@ background-size: cover;
                   <input id="name" class="col-xs-5" type="text"></input>
                 </div>
               <div  style="padding-right:150px">
-                <button type="submit" onSubmit="App.getpolicy(); return false;" class="button" >Pay</button>
+                <!-- <button id="connect-button">Pay</button> -->
+                <button style="background-color:blue;border-color:#00050f;color:#f2f2f2" id="send-button">ADD</button>
+                <script> 
+                 
+                document.getElementById('connect-button').addEventListener('click', event =>{
+                  let account;
+                 let button = event.target;
+                  ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+                    account = accounts[0];
+                    console.log(account);
+                    button.textContext = account;
+                  });
+                });
+
+                document.getElementById('send-button').addEventListener('click', event =>{
+                  let transactionparam={
+                    to:'0x2481091d7CB8b9d0d031a8BbA0bD2c64B0C7539c',
+                    from: account,
+                    value:'6F05B59D3B20000'
+                  };
+                  ethereum.request({method: 'eth_sendTransaction', params:[transactionparam]}).then(txhash => {
+                    console.log(txhash);
+                  });
+                });
+                </script>
               </div>
               </form>
 
@@ -258,7 +304,31 @@ background-size: cover;
                   <input id="name" class="col-xs-5" type="text"></input>
                 </div>
               <div  style="padding-right:150px">
-                <button type="submit" onSubmit="App.getpolicy(); return false;" class="button" >Pay</button>
+                <!-- <button id="connect-button">Pay</button> -->
+                <button style="background-color:blue;border-color:#00050f;color:#f2f2f2" id="send-button">ADD</button>
+                <script> 
+                 
+                document.getElementById('connect-button').addEventListener('click', event =>{
+                  let account;
+                 let button = event.target;
+                  ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+                    account = accounts[0];
+                    console.log(account);
+                    button.textContext = account;
+                  });
+                });
+
+                document.getElementById('send-button').addEventListener('click', event =>{
+                  let transactionparam={
+                    to:'0x2481091d7CB8b9d0d031a8BbA0bD2c64B0C7539c',
+                    from: account,
+                    value:'6F05B59D3B20000'
+                  };
+                  ethereum.request({method: 'eth_sendTransaction', params:[transactionparam]}).then(txhash => {
+                    console.log(txhash);
+                  });
+                });
+                </script>
               </div>
               </form>
 
@@ -291,30 +361,39 @@ background-size: cover;
                   <input id="name" class="col-xs-5" type="text"></input>
                 </div>
               <div  style="padding-right:150px">
-                <button type="submit" onSubmit="App.getpolicy(); return false;" class="button" >Pay</button>
+                <!-- <button id="connect-button">Connect To Wallet</button> -->
+                <button style="background-color:blue;border-color:#00050f;color:#f2f2f2" id="send-button">ADD</button>
+                <script> 
+                
+                document.getElementById('connect-button').addEventListener('click', event =>{
+                  let account; 
+                  let button = event.target;
+                  ethereum.request({method: 'eth_requestAccounts'}).then(accounts => {
+                    account = accounts[0];
+                    console.log(account);
+                    button.textContext = account;
+                  });
+                });
+
+                document.getElementById('send-button').addEventListener('click', event =>{
+                  let transactionparam={
+                    to:'0x2481091d7CB8b9d0d031a8BbA0bD2c64B0C7539c',
+                    from: account,
+                    value:'6F05B59D3B20000'
+                  };
+                  ethereum.request({method: 'eth_sendTransaction', params:[transactionparam]}).then(txhash => {
+                    console.log(txhash);
+                  });
+                });
+                </script>
               </div>
               </form>
 
       </div>
         </div>
         </div>
-
-     
-       
-
-
-              
-    
-
-
-     
-
-      
-     
-
-    
-    </div>
-    <div style="background-color:brown ;height:200px; width:100%">
+ </div>
+    <div style="background-color:rgb(173, 24, 24) ;height:200px; width:100%">
       <div>
       <h4  id="accountAddress" class="text-center" style="color:white; padding-top:65px"></h4>
       
@@ -329,4 +408,6 @@ background-size: cover;
       <script src="js/app.js"></script>  
   </body>
 </html>
+
+
 
